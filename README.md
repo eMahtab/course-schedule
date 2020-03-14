@@ -65,4 +65,5 @@ class Solution {
 ```
 
 # References :
-https://www.youtube.com/watch?v=0LjVxtLnNOk
+1. https://www.youtube.com/watch?v=0LjVxtLnNOk
+2. https://www.youtube.com/watch?v=z-mB8ZL6mjo (Topological Sort)
