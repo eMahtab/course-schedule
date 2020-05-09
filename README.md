@@ -31,7 +31,8 @@ Explanation: There are a total of 2 courses to take.
 
 # Approach :
 Push a course to stack only when all its prerequisites are completed, which means If indegree for this course is 0.
-While stack is not empty, pop a course from the stack , increment the course completed counter. And also update the indegree of the course for which this current course was a preequisite. Now if the indegree for any course becomes zero as we update the indegrees, add that course to stack for which indegree reached to zero.
+
+While stack is not empty, pop a course from the stack , increment the course completed counter. And also update the indegree of the course for which this current course was a prerequisite. Now if the indegree for any course becomes zero as we update the indegrees, add that course to stack for which indegree reached to zero.
 
 Finally when the stack is empty, the value of the course completed counter should be equal to number of courses If we were able to complete all the courses. But If the value of the course completed counter is not equal to number of courses, it means its not possible to complete all the courses. 
 
