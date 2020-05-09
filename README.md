@@ -36,7 +36,7 @@ While stack is not empty, pop a course from the stack , increment the course com
 
 Finally when the stack is empty, the value of the course completed counter should be equal to number of courses If we were able to complete all the courses. But If the value of the course completed counter is not equal to number of courses, it means its not possible to complete all the courses. 
 
-## Implementation :
+## Implementation 1 : DFS (Stack)
 
 ```java
 class Solution {
@@ -62,6 +62,41 @@ class Solution {
                     inDegrees[prerequisites[i][0]]--;
                     if(inDegrees[prerequisites[i][0]] == 0) {
                         stack.push(prerequisites[i][0]);
+                    }
+                }
+            }
+        }
+        return numCourses == count;
+    }
+}
+```
+
+## Implementation 2 : BFS (Queue)
+```java
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        int[] inDegrees = new int[numCourses];
+    
+        int count = 0;
+        for(int i = 0; i < prerequisites.length; i++) {
+            inDegrees[prerequisites[i][0]]++;
+        }
+        
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i = 0; i < inDegrees.length; i++) {
+            if(inDegrees[i] == 0) {
+                queue.offer(i);
+            }
+        }
+        
+        while(!queue.isEmpty()) {
+            int course = queue.poll();
+            count++;
+            for(int i = 0; i < prerequisites.length; i++) {
+                if(prerequisites[i][1] == course) {
+                    inDegrees[prerequisites[i][0]]--;
+                    if(inDegrees[prerequisites[i][0]] == 0) {
+                        queue.offer(prerequisites[i][0]);
                     }
                 }
             }
