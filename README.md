@@ -48,8 +48,8 @@ class Solution {
         }
         
         while(!stack.isEmpty()) {
-            count++;
             int course = stack.pop();
+            count++;
             for(int i = 0; i < prerequisites.length; i++) {
                 if(prerequisites[i][1] == course) {
                     inDegrees[prerequisites[i][0]]--;
