@@ -139,7 +139,6 @@ class Solution {
             }
         }
         
-        int count = 0;
         visited = new boolean[numCourses];
         while(!stack.isEmpty()) {
             int v = stack.pop();
