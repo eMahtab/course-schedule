@@ -72,6 +72,10 @@ class Solution {
 ```
 
 ## Implementation 2 : BFS (Queue) , Runtime : O(n * m)
+
+n = number of courses (numCourses)
+m = prerequisites.length
+
 ```java
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
@@ -107,6 +111,9 @@ class Solution {
 ```
 
 ## Implementation 2a (using Adjacency list) : BFS , Runtime = O(n + m)
+
+n = number of courses (numCourses)
+m = prerequisites.length
 
 ```java
 class Solution {
