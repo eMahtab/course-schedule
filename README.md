@@ -71,7 +71,7 @@ class Solution {
 }
 ```
 
-## Implementation 2 : BFS (Queue)
+## Implementation 2 : BFS (Queue) , Runtime : O(n * m)
 ```java
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
@@ -102,6 +102,44 @@ class Solution {
             }
         }
         return numCourses == count;
+    }
+}
+```
+
+## Implementation 2a (using Adjacency list) : BFS , Runtime = O(n + m)
+
+```java
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> adjacencyList = new ArrayList<>();
+        int[] indegree = new int[numCourses];
+        Queue<Integer> queue = new ArrayDeque<>();
+        int courseCompleted = 0;
+
+        for(int i = 0; i < numCourses; i++)
+            adjacencyList.add(new ArrayList<>());
+
+        for(int[] prerequisite : prerequisites) {
+            int a = prerequisite[0];
+            int b = prerequisite[1];
+            indegree[a]++;
+            adjacencyList.get(b).add(a);
+        }
+        for(int i = 0; i < numCourses; i++){
+            if(indegree[i] == 0)
+              queue.offer(i);
+        }
+
+        while(!queue.isEmpty()) {
+            int course = queue.remove();
+            courseCompleted++;
+            for(int neighbor : adjacencyList.get(course)){
+                indegree[neighbor]--;
+                if(indegree[neighbor] == 0)
+                  queue.offer(neighbor);
+            }
+        }
+        return courseCompleted == numCourses;
     }
 }
 ```
