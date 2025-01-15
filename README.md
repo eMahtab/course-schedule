@@ -71,9 +71,10 @@ class Solution {
 }
 ```
 
-## Implementation 2 : BFS (Queue) , Runtime : O(n * m)
+## Implementation 2 : BFS (Queue) , Runtime : O(n * m), Space = O(n)
 
 n = number of courses (numCourses)
+
 m = prerequisites.length
 
 ```java
@@ -110,9 +111,10 @@ class Solution {
 }
 ```
 
-## Implementation 2a (using Adjacency list) : BFS , Runtime = O(n + m)
+## Implementation 2a (using Adjacency list) : BFS , Runtime = O(n + m), Space = O(n + m)
 
 n = number of courses (numCourses)
+
 m = prerequisites.length
 
 ```java
